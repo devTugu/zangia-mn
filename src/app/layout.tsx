@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto, Barlow } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+import "swiper/css";
+
+const roboto = Roboto({
   subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-roboto",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const barlow = Barlow({
   subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-barlow",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,9 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${roboto.variable} ${barlow.variable} antialiased`}>
         {children}
       </body>
     </html>
