@@ -54,6 +54,10 @@ const WorkingSection = () => {
     },
   };
 
+  const displayedPosts = Array.isArray(data?.posts)
+    ? data.posts.slice(0, 4)
+    : [];
+
   return (
     <section className="py-[120px]">
       <div className="container max-w-6xl mx-auto px-4">
@@ -88,7 +92,7 @@ const WorkingSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {data?.posts?.slice(0, 4).map((step, index) => (
+          {displayedPosts.map((step, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
